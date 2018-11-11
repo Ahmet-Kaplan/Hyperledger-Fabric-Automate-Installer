@@ -126,8 +126,8 @@ def createConfigtx(tabName):
 
 #Ask user for network mapping
 def getArg():
-    orgName = [input("Your network name : ")]
-    orgName.append(input("Your first channel name : "))
+    orgName = [input("Your network name : ").lower()]
+    orgName.append(input("Your first channel name : ").lower())
     orgName.append(input("First org name : "))
     orgName.append(str(getNumber()))
     while (input("Do you want to create another organisation ? (y/N) ") == 'y' ):
@@ -278,7 +278,7 @@ def ordererDockerFile(hostname, rank, network, arch):
     rslt += list_value(network)
     return (rslt)
 
-#Part of docker-compose.yaml - Coucdh section
+#Part of docker-compose.yaml - Couchdb section
 def couchDBDockerFile(arch, network, rank):
     rslt = jumptab(2, 1) + "couchdb" + str(rank) + ":"
     rslt += container_name("couchdb" + str(rank))
